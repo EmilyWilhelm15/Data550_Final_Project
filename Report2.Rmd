@@ -1,0 +1,94 @@
+---
+title: "Report2"
+author: "Emily Wilhelm"
+date: "2025-11-06"
+output: html_document
+---
+
+```{r, here-i-am, include=FALSE}
+here::i_am(
+  "Report2.Rmd"
+)
+```
+
+```{r, packages, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(gt)
+install.packages("gtExtras")
+library(gtExtras)
+library(ggplot2)
+```
+
+## Georgia Air Quality Dataset 
+
+This dataset includes air quality data that was collected every three days in Atlanta, GA throughout the year 2024, starting on 01/01/2024. The air pollution data was sourced from the EPA's Air Quality System. There are a total of 9 air quality monitoring sites in Atlanta which collect PM2.5 data. The some of the variables that comprise the dataset are the `Date`, the daily mean PM2.5 concentrations (ug/m3 LC) - `Daily.Mean.PM2.5.Concentrations`, the daily air qualtiy index (AQI) value - `Daily.AQI.Value`, air monitor site ID - `Site.ID`, site name - `Local.Site.Name`, and `County`. 
+
+`Daily.AQI.Value` reports the overall air quality on a scale of 0-500. 
+
+* 0-50 AQI: Good - air pollution poses little to no risk 
+
+* 50-100 AQI: Moderate - some risk for thosee with high sensitivity to air pollution 
+
+* 100-150 AQI: Unhealthy for sensitive groups - those with high sensitivity to air pollution may experience health effects
+
+* 150-200 AQI: Unhealthy - some risk to the general public and risk of serious health effects for those with high sensitivity to air pollution 
+
+* 200-300 AQI: Very unhealthy - increased health risks for everyone 
+
+* 300-500 AQI: Hazardous - emergency conditions likely to affect everyone 
+
+The air monitoring site names are: 
+
+* Forest Park, Kennesaw, South Dekalb, NR-285, Fire Station #8, United Avenue, NR-GA Tech, Gwinnett, Mcdonough 
+
+
+## Analysis Objectives 
+
+* View monthly average PM2.5 (µg/m³) trends at each air monitoring site location using a table.   
+
+* Compare daily mean PM2.5 (µg/m³) ranges each month between two air monitoring sites in the same county using box plots to see how much PM2.5 could vary in one county. 
+
+
+```{r, load-files-needed, echo=FALSE}
+Average_PM2.5 <- readRDS(
+  here::here("output/Average_PM2.5.rds")
+)
+
+Fulton_data <- readRDS(
+  here::here("output/Fulton_data.rds")
+)
+```
+
+## Monthly Average PM2.5 (µg/m³) For Each Air Monitoring Site Location (2024)
+
+```{r, table, echo=FALSE}
+Average_PM2.5 %>% 
+  gt() %>% 
+  fmt_number(
+    columns = -Month,  
+    decimals = 2) %>% 
+  gt_theme_pff()
+```
+
+## Plotting and Comparing Fulton County Air Monitoring Site Locations
+
+```{r, plot, echo = FALSE}
+Fulton_1 <- "NR-GA Tech"
+Fulton_2 <- "United Avenue"
+
+ggplot(Fulton_data, aes(x = Local.Site.Name, y = Daily.Mean.PM2.5.Concentration, fill = Local.Site.Name)) +
+  geom_boxplot() + 
+  facet_wrap(~Month) +
+  labs(
+    title = "Comparing Daily PM2.5 Range each Month Between Two Fulton County Air Monitoring Locations",
+    x = "Month", 
+    y = "Daily PM2.5 (µg/m³)",
+    fill = "Local.Site.Name"
+  ) +
+  theme(
+    axis.text.x = element_blank())
+```
+
