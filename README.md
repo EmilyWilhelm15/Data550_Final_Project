@@ -28,8 +28,8 @@
 The first `make` rule in the makefile will generate the .html report. This report uses `renv` to ensure R uses the same package versions. 
 1. Run `make install` in your terminal before rendering the report to restore the package library.
   - If renv is not already installed: 
-    a. install.packages('renv') 
-    b. renv::restore() 
+    - install.packages('renv') 
+    - renv::restore() 
 2. Run `make` in the terminal to render the report
    - `make clean` will delete the generated `.rds`, `.png`, and `.html` files
 
