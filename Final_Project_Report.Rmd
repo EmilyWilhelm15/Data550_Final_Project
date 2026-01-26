@@ -52,16 +52,6 @@ The air monitoring site names are:
 * Compare daily mean PM2.5 (µg/m³) ranges each month between two air monitoring sites in the same county using box plots to see how much PM2.5 could vary in one county. 
 
 
-```{r, load-files-needed, echo=FALSE}
-#Average_PM2.5 <- readRDS(
-  #here::here("output/Average_PM2.5.rds")
-#)
-
-#Fulton_data <- readRDS(
-  #here::here("output/Fulton_data.rds")
-#)
-```
-
 ## Monthly Average PM2.5 (µg/m³) For Each Air Monitoring Site Location (2024)
 
 ```{r, table, echo=FALSE}
