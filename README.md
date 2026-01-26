@@ -1,5 +1,6 @@
 ## Data 
 - **File:** `data/ad_vix_plotval_data.csv`
+- This dataset includes air quality data that was collected every three days in Atlanta, GA throughout the year 2024, starting on 01/01/2024. The air pollution data was sourced from the EPA's Air Quality System. There are a total of 9 air quality monitoring sites in Atlanta which collect PM2.5 data. The some of the variables that comprise the dataset are the `Date`, the daily mean PM2.5 concentrations (ug/m3 LC) - `Daily.Mean.PM2.5.Concentrations`, the daily air qualtiy index (AQI) value - `Daily.AQI.Value`, air monitor site ID - `Site.ID`, site name - `Local.Site.Name`, and `County`. 
 
 ## Outputs: 
 - **Table:** `output/Average_table.png`
