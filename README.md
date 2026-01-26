@@ -8,7 +8,7 @@
 - **Boxplot:** `output/fulton_boxplot.png`
    - Comparing daily mean PM2.5 (µg/m³) ranges each month between two Fulton 
    - County air monitoring sites using box plots.
-- **Report:** `Report2.html`
+- **Report:** `Final_Project_Report.html`
 
 ## Code description
 - `code/01_clean_data.R`
@@ -23,7 +23,7 @@
   - Creates `fulton_boxplot.png`
   - Saves the figure in the /output folder
 - `code/render_report.R`
-  - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html` in the /Report folder
+  - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html` 
 
 ## How to Render the Report
 The first `make` rule in the makefile will generate the .html report. This report uses `renv` to ensure R uses the same package versions. 
