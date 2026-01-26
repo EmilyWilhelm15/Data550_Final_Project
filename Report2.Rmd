@@ -1,7 +1,7 @@
 ---
-title: "Report2"
+title: "Final Project 4"
 author: "Emily Wilhelm"
-date: "2025-11-06"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -65,30 +65,19 @@ Fulton_data <- readRDS(
 ## Monthly Average PM2.5 (µg/m³) For Each Air Monitoring Site Location (2024)
 
 ```{r, table, echo=FALSE}
-Average_PM2.5 %>% 
-  gt() %>% 
-  fmt_number(
-    columns = -Month,  
-    decimals = 2) %>% 
-  gt_theme_pff()
+knitr::include_graphics(
+  here::here("output/Average_table.png")
+)
 ```
+
+The table shows the monthly PM2.5 values for each air monitoring site location during 2024. Site location NR-285 only collected PM2.5 data from January through July, but the rest of the site locations collected PM2.5 data through all 12 months. Each site location experiences the same trend of an increase or decrease in PM2.5 for each successive month, despite their varying ranges. 
 
 ## Plotting and Comparing Fulton County Air Monitoring Site Locations
+# Daily mean PM2.5 (µg/m³) ranges each month between the two sites 
 
 ```{r, plot, echo = FALSE}
-Fulton_1 <- "NR-GA Tech"
-Fulton_2 <- "United Avenue"
-
-ggplot(Fulton_data, aes(x = Local.Site.Name, y = Daily.Mean.PM2.5.Concentration, fill = Local.Site.Name)) +
-  geom_boxplot() + 
-  facet_wrap(~Month) +
-  labs(
-    title = "Comparing Daily PM2.5 Range each Month Between Two Fulton County Air Monitoring Locations",
-    x = "Month", 
-    y = "Daily PM2.5 (µg/m³)",
-    fill = "Local.Site.Name"
-  ) +
-  theme(
-    axis.text.x = element_blank())
+knitr::include_graphics(
+  here::here("output/fulton_boxplot.png"))
 ```
 
+The box plots display the ranges daily mean PM2.5 concentrations each month for two air monitoring site locations in Fulton County, NR-GA Tech and United Avenue. The largest range of PM2.5 concentrations at NA-GA Tech occurred during February and the largest range of PM2.5 concentrations at United Avenue occurred during October, excluding outliers. 
