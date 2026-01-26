@@ -7,7 +7,7 @@ output: html_document
 
 ```{r, here-i-am, include=FALSE}
 here::i_am(
-  "Report2.Rmd"
+  "Final_Project_Report.Rmd"
 )
 ```
 
@@ -53,13 +53,13 @@ The air monitoring site names are:
 
 
 ```{r, load-files-needed, echo=FALSE}
-Average_PM2.5 <- readRDS(
-  here::here("output/Average_PM2.5.rds")
-)
+#Average_PM2.5 <- readRDS(
+  #here::here("output/Average_PM2.5.rds")
+#)
 
-Fulton_data <- readRDS(
-  here::here("output/Fulton_data.rds")
-)
+#Fulton_data <- readRDS(
+  #here::here("output/Fulton_data.rds")
+#)
 ```
 
 ## Monthly Average PM2.5 (µg/m³) For Each Air Monitoring Site Location (2024)
