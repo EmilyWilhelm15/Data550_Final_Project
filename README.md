@@ -9,26 +9,31 @@
    - County air monitoring sites using box plots.
 - **Report:** `Report2.html`
 
-## Initial code description
+## Code description
 - `code/01_clean_data.R`
-  - Loads packages, reads CSV, summarizes each monitoring site location by month
-  
+  - Loads packages, reads CSV, cleans data
+  - Saves data as `Average_PM2.5.rds` and `Fulton_data.rds` in /output/RDS folder
 - `code/02_make_table.R`
-  - Creates Average_table.png
-  - Saves to output folder
-
+  - Reads in the monthly average PM2.5 data from `Average_PM2.5.rds`
+  - Creates `Average_table.png`
+  - Saves the figure in the /output folder
 - `code/03_make_boxplot.R`  
-  - Creates fulton_boxplot.png
-  - Saves to output folder
+  - Reads in the Fulton County data from 
+  - Creates `fulton_boxplot.png`
+  - Saves the figure in the /output folder
+- `code/render_report.R`
+  - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html`  
 
-- `Report2.Rmd`
-  - Renders the report. 
+## How to Render the Report
+The first `make` rule in the makefile will generate the .html report. This report uses `renv` to ensure R uses the same package versions. 
+1. Run `make install` in your terminal before rendering the report to restore the package library.
+  - If renv is not already installed: 
+    a. install.packages('renv') 
+    b. renv::restore() 
+2. Run `make` in the terminal to render the report
+   - `make clean` will delete the generated `.rds`, `.png`, and `.html` files
 
-## Generating Report
-- The first make rule in the makefile will generate the .html report. 
-- Typing 'make' in the terminal will achieve this.
 
-## 
 
 
 
