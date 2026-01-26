@@ -1,6 +1,7 @@
 here::i_am(
-  "code/01_clean_data.R"
-)
+  "code/01_clean_data.R")
+
+dir.create(here::here("output", "RDS"), recursive = TRUE)
 
 #options(repos = c(CRAN = "https://cloud.r-project.org"))
 library(readr)
@@ -97,9 +98,16 @@ Average_PM2.5 <- all_sites_12_months %>%
   pivot_wider(names_from = Site, values_from = Month_Average) %>%
   arrange(Month)
 
+saveRDS(
+  Average_PM2.5, 
+  file = here::here("output/RDS/Average_PM2.5.rds"))
 
 Fulton_data <- daily_data_ga %>%
   filter(Local.Site.Name %in% c("NR-GA Tech", "United Avenue")) 
+
+saveRDS(
+  Fulton_data,
+  file = here::here("output/RDS/Fulton_data.rds"))
 
 
 
