@@ -22,7 +22,7 @@
   - Creates `fulton_boxplot.png`
   - Saves the figure in the /output folder
 - `code/render_report.R`
-  - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html`  
+  - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html` in the /Report folder
 
 ## How to Render the Report
 The first `make` rule in the makefile will generate the .html report. This report uses `renv` to ensure R uses the same package versions. 
