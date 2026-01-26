@@ -18,7 +18,7 @@
   - Creates `Average_table.png`
   - Saves the figure in the /output folder
 - `code/03_make_boxplot.R`  
-  - Reads in the Fulton County data from 
+  - Reads in the Fulton County data from `Fulton_data.rds`
   - Creates `fulton_boxplot.png`
   - Saves the figure in the /output folder
 - `code/render_report.R`
