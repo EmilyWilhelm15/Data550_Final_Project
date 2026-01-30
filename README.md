@@ -25,7 +25,8 @@
 - `code/render_report.R`
   - Renders `Final_Project_Report.Rmd`, creating the `Final_Project_Report.html` 
 
-## How to Render the Report
+## Ways to to Render the Report
+### Render using Make:
 The first `make` rule in the makefile will generate the .html report. This report uses `renv` to ensure R uses the same package versions. 
 1. Run `make install` in your terminal before rendering the report to restore the package library.
   - If renv is not already installed: 
@@ -33,6 +34,26 @@ The first `make` rule in the makefile will generate the .html report. This repor
     - renv::restore() 
 2. Run `make` in the terminal to render the report
    - `make clean` will delete the generated `.rds`, `.png`, and `.html` files
+3. More make commands are located in the Makefile
+
+### Build the Docker Image locally:
+`docker build -t emilywilhelm/final_report:latest . ` 
+
+### Pre-Built Dockerhub Image:
+1. The publicly available image on docker hub can be found here: 
+  - https://hub.docker.com/repository/docker/emilywilhelm/final_report/general 
+  - image name: `emilywilhelm/final_report:latest`
+2. Pull the image: 
+`docker pull emilywilhelm/final_report:latest
+
+### Manual Docker Run: 
+For Macs or Linux: 
+docker run -v "$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
+
+For Windows: 
+docker run -v "/$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
+
+
 
 
 
