@@ -44,14 +44,14 @@ The first `make` rule in the makefile will generate the .html report. This repor
   - https://hub.docker.com/repository/docker/emilywilhelm/final_report/general 
   - image name: `emilywilhelm/final_report:latest`
 2. Pull the image: 
-`docker pull emilywilhelm/final_report:latest
+`docker pull emilywilhelm/final_report:latest`
 
 ### Manual Docker Run: 
 For Macs or Linux: 
-docker run -v "$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
+`docker run -v "$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report`
 
 For Windows: 
-docker run -v "/$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
+`docker run -v "/$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report`
 
 
 
