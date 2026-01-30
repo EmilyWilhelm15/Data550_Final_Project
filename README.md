@@ -41,7 +41,7 @@ The first `make` rule in the makefile will generate the .html report. This repor
 
 ### Pre-Built Dockerhub Image:
 1. The publicly available image on docker hub can be found here: 
-  - https://hub.docker.com/repository/docker/emilywilhelm/final_report/general 
+  - https://hub.docker.com/r/emilywilhelm/final_report
   - image name: `emilywilhelm/final_report:latest`
 2. Pull the image: 
 `docker pull emilywilhelm/final_report:latest`
