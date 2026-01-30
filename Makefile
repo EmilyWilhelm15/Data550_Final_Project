@@ -29,4 +29,13 @@ install:
 clean:
 	rm -f output/RDS/*.rds output/*.png *.html 
 	
+#Instructions to run report (docker) for Macs 
+.PHONY: docker-run-report-mac
+docker-run-report-mac:
+	docker run -v "$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
+	
+#Instructions to run report (docker) for Windows 
+.PHONY: docker-run-report-win
+docker-run-report-win:	
+	docker run -v "/$$(pwd)/report":/home/rstudio/project/report emilywilhelm/final_report
 	
