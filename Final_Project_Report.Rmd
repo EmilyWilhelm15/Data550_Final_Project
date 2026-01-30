@@ -55,9 +55,12 @@ The air monitoring site names are:
 ## Monthly Average PM2.5 (µg/m³) For Each Air Monitoring Site Location (2024)
 
 ```{r, table, echo=FALSE}
-knitr::include_graphics(
-  here::here("output/Average_table.png")
+
+Table <- readRDS(
+  here::here("output/Table.rds")
 )
+
+Table
 ```
 
 The table shows the monthly PM2.5 values for each air monitoring site location during 2024. Site location NR-285 only collected PM2.5 data from January through July, but the rest of the site locations collected PM2.5 data through all 12 months. Each site location experiences the same trend of an increase or decrease in PM2.5 for each successive month, despite their varying ranges. 
@@ -65,8 +68,10 @@ The table shows the monthly PM2.5 values for each air monitoring site location d
 ## Plotting and Comparing Fulton County Air Monitoring Site Locations
 
 ```{r, plot, echo = FALSE}
-knitr::include_graphics(
-  here::here("output/fulton_boxplot.png"))
+Boxplot <- readRDS(
+  here::here("output/Boxplot.rds"))
+
+Boxplot
 ```
 
 The box plots display the ranges daily mean PM2.5 concentrations each month for two air monitoring site locations in Fulton County, NR-GA Tech and United Avenue. The largest range of PM2.5 concentrations at NA-GA Tech occurred during February and the largest range of PM2.5 concentrations at United Avenue occurred during October, excluding outliers. 
